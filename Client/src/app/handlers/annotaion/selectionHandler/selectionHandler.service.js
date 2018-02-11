@@ -225,6 +225,7 @@
                             });
 
                         }else if(unit.is_remote_copy){
+                            console.log("Init tree, unit is remote copy", unit);
 
                             DataService.unitType = 'REMOTE';
 
@@ -287,6 +288,7 @@
                             });
 
                             DataService.unitsUsedAsRemote[unit.annotation_unit_tree_id][unit.parent_id + "-" + parseInt(parseInt(amountOfRemotes+1))] = true;
+                            console.log("In initTree, unitsUsedAsRemote=", DataService.unitsUsedAsRemote);
 
 
 

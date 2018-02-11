@@ -241,6 +241,7 @@
         }
 
         function insertToTree(newObject,level,inInitStage){
+            console.log("In insertToTree, newObject=", newObject);
             return $q(function(resolve, reject) {
 
                 // if (newObject.unitType == "IMPLICIT") {

@@ -22,7 +22,5 @@ FROM builder as backend
 # The gunicorn environment variables
 ENV DJANGO_SETTINGS_MODULE ucca.settings
 ENV PYTHONPATH $PYTHONPATH:/src
-RUN echo "#!/bin/sh" > /docker-entrypoint.sh
-RUN echo gunicorn --workers 3 --bind 0.0.0.0:8000 ucca.wsgi:application >> /docker-entrypoint.sh
-RUN chmod u+x docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
+RUN chmod u+x src/docker-entrypoint.sh
+ENTRYPOINT ["src/docker-entrypoint.sh"]

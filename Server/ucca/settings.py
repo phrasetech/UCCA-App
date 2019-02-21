@@ -179,7 +179,13 @@ REGISTRATION_LINK = "/"
 
 
 try:
-	from .local_settings import *
+    from .local_settings import *
 except:
-	pass
+    pass
+
+if os.environ.get("UCCAAPP_ENV"):
+    with open("settings-%s.py" % os.environ.get("UCCAAPP_ENV")) as f:
+        code = compile(f.read(), "somefile.py", 'exec')
+    exec(code)
+
 
